@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sierpinski Carpet</title>
+    <style>
+        body {
+            max-width: 600px;
+            margin: 32px auto;
+            padding: 0 16px;
+            font-family: sans-serif;
+            color: #222;
+            background: #fff;
+        }
+        h1 { font-size: 26px; }
+        canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            outline: 1px solid #ccc;
+        }
+        #status { line-height: 1.6; }
+        #error-message { color: #a00000; }
+        #controls {
+            min-width: 0;
+            margin: 24px 0 0;
+            padding: 0;
+            border: 0;
+        }
+        #controls legend { margin-bottom: 16px; font-weight: bold; }
+        .control { margin-bottom: 20px; }
+        .control label { display: block; margin-bottom: 8px; }
+        .control-row { display: flex; align-items: center; gap: 12px; }
+        #subdivision { flex: 1; min-width: 0; margin: 0; }
+        #color-picker { width: 64px; height: 40px; padding: 2px; }
+        #color-value { font-family: monospace; }
+        output { font-variant-numeric: tabular-nums; }
+    </style>
+
+    <!-- PPT와 같은 단순 통과 정점 셰이더 -->
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        attribute vec4 vPosition;
+
+        void main() {
+            gl_Position = vPosition;
+        }
+    </script>
+
+    <!-- JavaScript에서 uniform으로 도형 색상을 전달한다. -->
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        precision mediump float;
+        uniform vec4 color;
+
+        void main() {
+            gl_FragColor = color;
+        }
+    </script>
+
+    <!-- Example 폴더의 교재 공통 코드를 먼저 읽은 뒤 Carpet 코드를 실행한다. -->
+    <script src="Example/webgl-utils.js" defer></script>
+    <script src="Example/initShaders.js" defer></script>
+    <script src="Example/MV.js" defer></script>
+    <script src="carpet.js" defer></script>
+</head>
+<body>
+    <h1>Sierpinski Carpet</h1>
+    <p id="status" role="status"></p>
+    <div id="canvas-container">
+        <canvas id="gl-canvas" width="600" height="600" aria-label="Sierpinski Carpet 도형">
+            이 브라우저는 canvas를 지원하지 않습니다.
+        </canvas>
+    </div>
+    <fieldset id="controls" disabled>
+        <legend>도형 설정</legend>
+        <div class="control">
+            <label for="subdivision">분할 횟수: <output id="subdivision-value" for="subdivision">5</output>회</label>
+            <div class="control-row">
+                <span>0</span>
+                <input id="subdivision" type="range" min="0" max="5" step="1" value="5">
+                <span>5</span>
+            </div>
+        </div>
+        <div class="control">
+            <label for="color-picker">도형 색상</label>
+            <div class="control-row">
+                <input id="color-picker" type="color" value="#3366cc">
+                <output id="color-value" for="color-picker">#3366CC</output>
+            </div>
+        </div>
+    </fieldset>
+    <p id="error-message" role="alert" hidden></p>
+</body>
+</html>

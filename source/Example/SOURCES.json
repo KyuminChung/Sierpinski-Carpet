@@ -1,0 +1,29 @@
+{
+  "retrievedAt": "2026-09-22T02:20:50.230918+00:00",
+  "files": [
+    {
+      "file": "MV.js",
+      "source": "https://www.cs.unm.edu/~angel/BOOK/INTERACTIVE_COMPUTER_GRAPHICS/SEVENTH_EDITION/CODE/Common/MV.js",
+      "bytes": 22148,
+      "sha256": "7193e6d92390fb8cd21d5ef1526378d5cc168c2ece2a77f80a39a1edcecc87ba"
+    },
+    {
+      "file": "initShaders.js",
+      "source": "https://www.cs.unm.edu/~angel/BOOK/INTERACTIVE_COMPUTER_GRAPHICS/SEVENTH_EDITION/CODE/Common/initShaders.js",
+      "bytes": 1784,
+      "sha256": "2ec81720134b0b26caf15701f0cddb2af0024a991918a5aeb7bb5ba714727c67"
+    },
+    {
+      "file": "webgl-utils.js",
+      "source": "https://www.cs.unm.edu/~angel/BOOK/INTERACTIVE_COMPUTER_GRAPHICS/SEVENTH_EDITION/CODE/Common/webgl-utils.js",
+      "bytes": 5461,
+      "sha256": "4fce9b1431579d787c84410757363a69f3a98a7b2c498344d7aa004990a6169f"
+    },
+    {
+      "file": "LICENSE",
+      "source": "https://www.cs.unm.edu/~angel/BOOK/INTERACTIVE_COMPUTER_GRAPHICS/SEVENTH_EDITION/CODE/license",
+      "bytes": 1167,
+      "sha256": "bcdc3bc73dcd846affd690790bdf872c9609b9a8f68397f597a0a45782678113"
+    }
+  ]
+}
